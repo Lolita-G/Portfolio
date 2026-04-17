@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Flex} from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
 const Footer = () => {
   return (
@@ -7,14 +7,18 @@ const Footer = () => {
       <footer>
         <Flex
           margin="0 auto"
-          px={12}
+          px={{ base: 4, md: 12 }}
+          py={{ base: 4, md: 0 }}
           color="white"
           justifyContent="center"
           alignItems="center"
+          textAlign="center"
           maxWidth="1024px"
-          height={16}
+          minHeight={16}
         >
-          <p>Developed by Lolita Gorkavenko • © 2026</p>
+          <Text fontSize={{ base: "sm", md: "md" }}>
+            Developed by Lolita Gorkavenko • © 2026
+          </Text>
         </Flex>
       </footer>
     </Box>

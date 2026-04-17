@@ -8,6 +8,7 @@ const Card = ({ title, description, imageSrc, status, liveUrl }) => {
     <VStack
     align="start"
     spacing={4}
+    width="100%"
     borderWidth="0"
     borderColor="transparent"
     borderRadius="lg"
@@ -20,14 +21,14 @@ const Card = ({ title, description, imageSrc, status, liveUrl }) => {
   }}
     >
       <Image src={imageSrc} alt={title} borderRadius="md" width="100%"/>
-      <Heading  color="black" fontSize="lg" px={4} pt={2}> 
+      <Heading color="black" fontSize={{ base: "md", md: "lg" }} px={{ base: 4, md: 4 }} pt={2}> 
         {title}
       </Heading>
-      <Text color="grey" fontSize="md" px={4}>
+      <Text color="grey" fontSize={{ base: "sm", md: "md" }} px={{ base: 4, md: 4 }}>
         {description}
       </Text>
 
-      <HStack spacing={2} px={4} color="black">
+      <HStack spacing={2} px={{ base: 4, md: 4 }} color="black">
         {status === "coming-soon" ? (
           <Text color="gray" fontWeight="medium">
             Work in Progress

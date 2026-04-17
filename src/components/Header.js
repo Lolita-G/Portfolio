@@ -80,13 +80,15 @@ const Header = () => {
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
-          px={16}
-          py={4}
+          px={{ base: 4, md: 8, lg: 16 }}
+          py={{ base: 3, md: 4 }}
+          spacing={{ base: 4, md: 8 }}
           justifyContent="space-between"
           alignItems="center"
+          flexWrap="wrap"
         >
           <nav>
-            <HStack spacing={6}>
+            <HStack spacing={{ base: 4, md: 6 }}>
               {socials.map((social, index) => (
               <Box
                 as="a"
@@ -109,7 +111,7 @@ const Header = () => {
             </HStack>
           </nav>
           <nav>
-            <HStack spacing={8}>
+            <HStack spacing={{ base: 4, md: 8 }} flexWrap="wrap" justifyContent={{ base: "flex-start", md: "flex-end" }}>
               <Box
                 as="a"
                 href="/Gorkavenko_Lebenslauf.pdf"
@@ -117,6 +119,7 @@ const Header = () => {
                 rel="noopener noreferrer"
                 transition="transform 0.2s ease"
                 transformOrigin="center"
+                fontSize={{ base: "sm", md: "md" }}
                 _hover={{ transform: "scale(1.08)" }}
               >
                 CV
@@ -127,6 +130,7 @@ const Header = () => {
                 onClick={handleClick("projects")}
                 transition="transform 0.2s ease"
                 transformOrigin="center"
+                fontSize={{ base: "sm", md: "md" }}
                 _hover={{ transform: "scale(1.08)" }}
               >
                 Projects
@@ -137,6 +141,7 @@ const Header = () => {
                 onClick={handleClick("contactme")}
                 transition="transform 0.2s ease"
                 transformOrigin="center"
+                fontSize={{ base: "sm", md: "md" }}
                 _hover={{ transform: "scale(1.08)" }}
               >
                 Contact Me
