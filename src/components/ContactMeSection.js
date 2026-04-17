@@ -25,7 +25,7 @@ const LandingSection = () => {
     initialValues: {
       firstName: "",
       email: "",
-      type: "hireMe", 
+      type: "interviewInvitation", 
       comment: "",
     },
     
@@ -38,7 +38,7 @@ const LandingSection = () => {
       .email("Invalid email address"),
 
       type: Yup.string()
-      .oneOf(["hireMe", "openSource", "other"]),
+      .oneOf(["jobOpportunity", "interviewInvitation", "generalInquiry", "other"]),
 
       comment: Yup.string()
       .min(25,"Must be at least 25 characters")
@@ -63,7 +63,7 @@ useEffect(() => {
   return (
     <FullScreenSection
       isDarkBackground
-      backgroundColor="#512DA8"
+      backgroundColor="#011F28"
       py={16}
       spacing={8}
     >
@@ -97,11 +97,11 @@ useEffect(() => {
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" 
+                <Select id="type" name="type"
                 {...formik.getFieldProps('type')}>
-                  <option value="hireMe">Freelance project proposal</option>
-                  <option value="openSource">
-                    Open source consultancy session</option>
+                  <option value="interviewInvitation">Interview invitation</option>
+                  <option value="jobOpportunity">Job opportunity</option>
+                  <option value="generalInquiry">General inquiry</option>
                   <option value="other">Other</option>
                 </Select>
               </FormControl>
@@ -116,9 +116,26 @@ useEffect(() => {
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" isLoading={isLoading} colorScheme="purple" width="full">
+              <Button
+                type="submit"
+                isLoading={isLoading}
+                width="full"
+                bg="#7F888D"
+                color="#1f1f1f"
+                _hover={{ bg: "#ffffff" }}
+              >
                 Submit
               </Button>
+              <Box width="full">
+                <FormLabel
+                  m={0}
+                  fontSize="sm"
+                  textAlign="center"
+                  color="rgba(255, 255, 255, 0.8)"
+                >
+                  This form is a demo showcasing front-end validation and user interaction.
+                </FormLabel>
+              </Box>
             </VStack>
           </form>
         </Box>

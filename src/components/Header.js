@@ -1,34 +1,30 @@
 import React, { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { SiVercel } from "react-icons/si";
 import {
   faGithub,
   faLinkedin,
-  faMedium,
-  faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
+
 
 const socials = [
   {
     icon: faEnvelope,
-    url: "https://mail.google.com/",
+    url: "mailto:lolitagorkavenko@gmail.com",
   },
   {
     icon: faGithub,
-    url: "https://github.com",
+    url: "https://github.com/Lolita-G",
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com",
+    url: "https://www.linkedin.com/in/lolita-gorkavenko-699a96205/",
   },
   {
-    icon: faMedium,
-    url: "https://medium.com",
-  },
-  {
-    icon: faStackOverflow,
-    url: "https://stackoverflow.com",
+    IconComponent: SiVercel,
+    url: "https://vercel.com/lolitagorkavenko-8342s-projects",
   },
 ];
 
@@ -80,7 +76,7 @@ const Header = () => {
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b" 
+      backgroundColor="#18181b"
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
@@ -90,24 +86,61 @@ const Header = () => {
           alignItems="center"
         >
           <nav>
-            {/* Add social media links based on the `socials` data */}
             <HStack spacing={6}>
               {socials.map((social, index) => (
-              <a 
-                key={index} 
-                href={social.url} 
+              <Box
+                as="a"
+                key={index}
+                href={social.url}
                 target="_blank"
-                rel="noopener noreferrer">
-              <FontAwesomeIcon icon={social.icon} size="2x" />
-              </a>
+                rel="noopener noreferrer"
+                display="inline-flex"
+                alignItems="center"
+                transition="transform 0.2s ease"
+                _hover={{ transform: "scale(1.12)" }}
+              >
+                {social.IconComponent ? (
+                  <Box as={social.IconComponent} boxSize={7} />
+                ) : (
+                  <FontAwesomeIcon icon={social.icon} size="2x" />
+                )}
+              </Box>
               ))}
             </HStack>
           </nav>
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
-              <a href= "#projects-section"  onClick={handleClick("projects")}> Projects</a>
-              <a href= "#contactme-section" onClick={handleClick("contactme")}> Contact Me</a>
+              <Box
+                as="a"
+                href="/Gorkavenko_Lebenslauf.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                transition="transform 0.2s ease"
+                transformOrigin="center"
+                _hover={{ transform: "scale(1.08)" }}
+              >
+                CV
+              </Box>
+              <Box
+                as="a"
+                href="#projects-section"
+                onClick={handleClick("projects")}
+                transition="transform 0.2s ease"
+                transformOrigin="center"
+                _hover={{ transform: "scale(1.08)" }}
+              >
+                Projects
+              </Box>
+              <Box
+                as="a"
+                href="#contactme-section"
+                onClick={handleClick("contactme")}
+                transition="transform 0.2s ease"
+                transformOrigin="center"
+                _hover={{ transform: "scale(1.08)" }}
+              >
+                Contact Me
+              </Box>
             </HStack>
           </nav>
         </HStack>
