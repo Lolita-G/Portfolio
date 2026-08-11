@@ -13,7 +13,7 @@ const projects = [
     liveUrl: "https://little-lemon-restaurant-xi.vercel.app/",
   },
   {
-    title: "React Infinite Scroll",
+    title: "Real-Time Stock Market App",
     description:
       "Real-time stock market dashboard with interactive charts and live data streaming, built with React Hooks and modular architecture",
     getImageSrc: () => require("../images/Stock.png"),
